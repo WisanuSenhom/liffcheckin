@@ -85,7 +85,8 @@ function showPosition(position) {
             var uid = profile.userId;
             var uname = profile.displayName;
         var xos = liff.getOS();
- var selx = document.getElementById("type").value;      
+ var selx = document.getElementById("type"),
+     selxValue = tpye.value;      
   x.innerHTML = "Lat: " + position.coords.latitude + 
   "<br>Long: " + position.coords.longitude+ 
   "<br>userId: " + uid+ 
