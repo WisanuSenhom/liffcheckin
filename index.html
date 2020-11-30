@@ -24,8 +24,9 @@
   <option value="income">ยืมตัวมาช่วยราชการ</option>
   <option value="normal" selected>ปกติ</option>
 </select>  
-      
-<input type="text" name="nte" id="nte"  placeholder="หมายเหตุ" required="" maxlength="250" autocomplete="off">
+<textarea id="nte" name="nte" rows="3"
+placeholder="หมายเหตุ" required="" maxlength="250" autocomplete="off" warp="soft">
+</textarea>
 <br>  
 <div id="cin" class="invisible"><button type="button" class="btn btn-success" onclick="getLocation()">Check-In</button></div>
 <div id="cout" class="invisible"><button id="cout" type="button" class="btn btn-danger" onclick="getLocationOut()">Check-Out</button></div>
