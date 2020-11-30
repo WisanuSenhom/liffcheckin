@@ -90,15 +90,14 @@ function showPosition(position) {
      liff.getProfile().then(function(profile) {
             var uid = profile.userId;
             var uname = profile.displayName;
-        var xos = liff.getOS();
-        var selx = document.getElementById("typea").value;
-       var notex = document.getElementById("notex").value;
-       
+        var xos = liff.getOS();       
   x.innerHTML = "Lat: " + position.coords.latitude + 
   "<br>Long: " + position.coords.longitude+ 
   "<br>userId: " + uid+ 
   "<br>displayName: " + uname+
   "<br>your OS: " + xos;
+var selx = document.getElementById("typea").value;
+var notex = document.getElementById("notex").value;
 var xmlhttp = new XMLHttpRequest();
         var theUrl = xurl+"?ctype=In&xos="+xos+"&user="+uid+"&name="+uname+"&lat="+position.coords.latitude+"&long="+position.coords.longitude+"&sel="+selx+"&note="+notex;
         xmlhttp.open('GET', theUrl);
@@ -131,14 +130,13 @@ function showPositionOut(position) {
             var uid = profile.userId;
             var uname = profile.displayName;
         var xos = liff.getOS();
-       var selx = document.getElementById("typea").value;
-        var notex = document.getElementById("notex").value;
-       
   x.innerHTML = "Lat: " + position.coords.latitude + 
   "<br>Long: " + position.coords.longitude+ 
   "<br>userId: " + uid+ 
   "<br>displayName: " + uname+
   "<br>your OS: " + xos;
+var selx = document.getElementById("typea").value;
+var notex = document.getElementById("notex").value;
 var xmlhttp = new XMLHttpRequest();
         var theUrl = xurl+"?ctype=Out&xos="+xos+"&user="+uid+"&name="+uname+"&lat="+position.coords.latitude+"&long="+position.coords.longitude+"&sel="+selx+"&note="+notex;
         xmlhttp.open('GET', theUrl);
