@@ -22,7 +22,9 @@
   <option value="outcome">ไปราชการ</option>
   <option value="income">ยืมตัวมาช่วยราชการ</option>
   <option value="normal" selected>ปกติ</option>
-</select>     
+</select>  
+      
+<input type="text" name="notex" id="notex" class="form-control" placeholder="หมายเหตุ" required="" maxlength="250" autocomplete="off">
   
 <div id="cin" class="invisible"><button type="button" class="btn btn-success" onclick="getLocation()">Check-In</button></div>
 <div id="cout" class="invisible"><button id="cout" type="button" class="btn btn-danger" onclick="getLocationOut()">Check-Out</button></div>
@@ -85,6 +87,7 @@ function showPosition(position) {
             var uname = profile.displayName;
         var xos = liff.getOS();
         var selx = document.getElementById("typea").value;
+       var notex = document.getElementById("notex").value;
        
   x.innerHTML = "Lat: " + position.coords.latitude + 
   "<br>Long: " + position.coords.longitude+ 
@@ -92,7 +95,7 @@ function showPosition(position) {
   "<br>displayName: " + uname+
   "<br>your OS: " + xos;
 var xmlhttp = new XMLHttpRequest();
-        var theUrl = xurl+"?ctype=In&xos="+xos+"&user="+uid+"&name="+uname+"&lat="+position.coords.latitude+"&long="+position.coords.longitude+"&sel="+selx;
+        var theUrl = xurl+"?ctype=In&xos="+xos+"&user="+uid+"&name="+uname+"&lat="+position.coords.latitude+"&long="+position.coords.longitude+"&sel="+selx+"&note="+notex;
         xmlhttp.open('GET', theUrl);
         xmlhttp.send();
             xmlhttp.onreadystatechange = function() {
@@ -124,6 +127,7 @@ function showPositionOut(position) {
             var uname = profile.displayName;
         var xos = liff.getOS();
        var selx = document.getElementById("typea").value;
+        var notex = document.getElementById("notex").value;
        
   x.innerHTML = "Lat: " + position.coords.latitude + 
   "<br>Long: " + position.coords.longitude+ 
@@ -131,7 +135,7 @@ function showPositionOut(position) {
   "<br>displayName: " + uname+
   "<br>your OS: " + xos;
 var xmlhttp = new XMLHttpRequest();
-        var theUrl = xurl+"?ctype=Out&xos="+xos+"&user="+uid+"&name="+uname+"&lat="+position.coords.latitude+"&long="+position.coords.longitude+"&sel="+selx;
+        var theUrl = xurl+"?ctype=Out&xos="+xos+"&user="+uid+"&name="+uname+"&lat="+position.coords.latitude+"&long="+position.coords.longitude+"&sel="+selx+"&note="+notex;
         xmlhttp.open('GET', theUrl);
         xmlhttp.send();
             xmlhttp.onreadystatechange = function() {
