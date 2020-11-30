@@ -25,7 +25,7 @@
   <option value="normal" selected>ปกติ</option>
 </select>  
       
-<input type="text" name="notex" id="notex" class="form-control" placeholder="หมายเหตุ" required="" maxlength="250" autocomplete="off">
+<input type="text" name="notea" id="notea" class="form-control" placeholder="หมายเหตุ" required="" maxlength="250" autocomplete="off">
 <br>  
 <div id="cin" class="invisible"><button type="button" class="btn btn-success" onclick="getLocation()">Check-In</button></div>
 <div id="cout" class="invisible"><button id="cout" type="button" class="btn btn-danger" onclick="getLocationOut()">Check-Out</button></div>
@@ -87,7 +87,7 @@ function getLocation() {
 
 function showPosition(position) {
 var selx = document.getElementById("typea").value;
-var notex = document.getElementById("notex").value;
+var notex = document.getElementById("notea").value;
      liff.getProfile().then(function(profile) {
             var uid = profile.userId;
             var uname = profile.displayName;
@@ -126,7 +126,7 @@ function getLocationOut() {
 
 function showPositionOut(position) {
 var selx = document.getElementById("typea").value;
-var notex = document.getElementById("notex").value;
+var notex = document.getElementById("notea").value;
      liff.getProfile().then(function(profile) {
             var uid = profile.userId;
             var uname = profile.displayName;
