@@ -15,9 +15,9 @@
     <h1>Check-In/Out Log</h1>
 <p>Click the button to check-in or check-out with your coordinates.</p>
 
-<label for="type">เลือกประเภท:</label>
+<label for="typea">เลือกประเภท:</label>
 
-<select id="type">
+<select id="typea">
   <option value="vip">ลากิจ</option>
   <option value="sisk">ลาป่วย</option>
   <option value="out">ไปราชการ/ช่วยราชการ</option>
@@ -85,8 +85,8 @@ function showPosition(position) {
             var uid = profile.userId;
             var uname = profile.displayName;
         var xos = liff.getOS();
- var selx = document.getElementById("type"),
-     selxValue = tpye.value;      
+        var selx = document.getElementById("typea").value;
+       
   x.innerHTML = "Lat: " + position.coords.latitude + 
   "<br>Long: " + position.coords.longitude+ 
   "<br>userId: " + uid+ 
