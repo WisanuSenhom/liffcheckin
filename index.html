@@ -25,7 +25,7 @@
   <option value="normal" selected>ปกติ</option>
 </select>  
       
-<input type="text" name="notea" id="notea"  placeholder="หมายเหตุ" required="" maxlength="250" autocomplete="off">
+<input type="text" name="nte" id="nte"  placeholder="หมายเหตุ" required="" maxlength="250" autocomplete="off">
 <br>  
 <div id="cin" class="invisible"><button type="button" class="btn btn-success" onclick="getLocation()">Check-In</button></div>
 <div id="cout" class="invisible"><button id="cout" type="button" class="btn btn-danger" onclick="getLocationOut()">Check-Out</button></div>
@@ -87,7 +87,7 @@ function getLocation() {
 
 function showPosition(position) {
 var selx = document.getElementById("typea").value;
-var notex = document.getElementById("notea").value;
+var untex = document.getElementById("nte").value;
      liff.getProfile().then(function(profile) {
             var uid = profile.userId;
             var uname = profile.displayName;
@@ -99,7 +99,7 @@ var notex = document.getElementById("notea").value;
   "<br>your OS: " + xos;
 
 var xmlhttp = new XMLHttpRequest();
-        var theUrl = xurl+"?ctype=In&xos="+xos+"&user="+uid+"&name="+uname+"&lat="+position.coords.latitude+"&long="+position.coords.longitude+"&sel="+selx+"&note="+notex;
+        var theUrl = xurl+"?ctype=In&xos="+xos+"&user="+uid+"&name="+uname+"&lat="+position.coords.latitude+"&long="+position.coords.longitude+"&sel="+selx+"&ntex="+untex;
         xmlhttp.open('GET', theUrl);
         xmlhttp.send();
             xmlhttp.onreadystatechange = function() {
@@ -126,7 +126,7 @@ function getLocationOut() {
 
 function showPositionOut(position) {
 var selx = document.getElementById("typea").value;
-var notex = document.getElementById("notea").value;
+var untex = document.getElementById("nte").value;
      liff.getProfile().then(function(profile) {
             var uid = profile.userId;
             var uname = profile.displayName;
@@ -138,7 +138,7 @@ var notex = document.getElementById("notea").value;
   "<br>your OS: " + xos;
 
 var xmlhttp = new XMLHttpRequest();
-        var theUrl = xurl+"?ctype=Out&xos="+xos+"&user="+uid+"&name="+uname+"&lat="+position.coords.latitude+"&long="+position.coords.longitude+"&sel="+selx+"&note="+notex;
+        var theUrl = xurl+"?ctype=Out&xos="+xos+"&user="+uid+"&name="+uname+"&lat="+position.coords.latitude+"&long="+position.coords.longitude+"&sel="+selx+"&ntex="+untex;
         xmlhttp.open('GET', theUrl);
         xmlhttp.send();
             xmlhttp.onreadystatechange = function() {
