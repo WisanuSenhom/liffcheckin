@@ -20,12 +20,11 @@
 <select id="type">
   <option value="vip">ลากิจ</option>
   <option value="sisk">ลาป่วย</option>
-  <option value="goout">ไปราชการ/ช่วยราชการ</option>
+  <option value="out">ไปราชการ/ช่วยราชการ</option>
   <option value="learn">อบรม/ประชุม/สัมมนา</option>
   <option value="normal" selected>ปกติ</option>
 </select>     
   
-      
 <div id="cin" class="invisible"><button type="button" class="btn btn-success" onclick="getLocation()">Check-In</button></div>
 <div id="cout" class="invisible"><button id="cout" type="button" class="btn btn-danger" onclick="getLocationOut()">Check-Out</button></div>
 
@@ -46,7 +45,7 @@ today.toLocaleString('th-TH', { timeZone: 'Asia/Bangkok' })
 var hh = today.getHours();
 var mm = today.getMinutes(); 
 
-        if(hh <= 12){
+        if(hh <= 15){
           document.getElementById("cin").classList.remove('invisible');
         }else if(hh >= 16){
           document.getElementById("cout").classList.remove('invisible');
