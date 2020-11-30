@@ -14,6 +14,18 @@
     <center>
     <h1>Check-In/Out Log</h1>
 <p>Click the button to check-in or check-out with your coordinates.</p>
+
+<label for="type">Choose a car:</label>
+
+<select id="type">
+  <option value="vip">ลากิจ</option>
+  <option value="sisk">ลาป่วย</option>
+  <option value="goout">ไปราชการ/ช่วยราชการ</option>
+  <option value="learn">อบรม/ประชุม/สัมมนา</option>
+  <option value="normal" selected>ปกติ</option>
+</select>     
+  
+      
 <div id="cin" class="invisible"><button type="button" class="btn btn-success" onclick="getLocation()">Check-In</button></div>
 <div id="cout" class="invisible"><button id="cout" type="button" class="btn btn-danger" onclick="getLocationOut()">Check-Out</button></div>
 
