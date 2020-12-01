@@ -8,32 +8,15 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-    <title>รพ.สต.หนองทุ่ม</title>
+    <title>ITDEV.win</title>
   </head>
   <body>
     <center>
-      <img src="http://www.pccuthai.com/picture/anamai.png" alt="รพ.สต.หนองทุ่ม" width="100" height="100">
     <h1>Check-In/Out Log</h1>
 <p>Click the button to check-in or check-out with your coordinates.</p>
-
-<label for="typea">เลือกประเภท:</label>
-
-<select id="typea">
-  <option value="vip">ลา</option>
-  <option value="outcome">ไปราชการ</option>
-  <option value="income">ยืมตัวมาช่วยราชการ</option>
-  <option value="normal" selected>ปกติ</option>
-</select>  
-<textarea id="nte" name="nte" rows="2" cols="35"
-placeholder="หมายเหตุ" required="" maxlength="255" autocomplete="off" warp="soft">
-</textarea>
-<br>  
 <div id="cin" class="invisible"><button type="button" class="btn btn-success" onclick="getLocation()">Check-In</button></div>
 <div id="cout" class="invisible"><button id="cout" type="button" class="btn btn-danger" onclick="getLocationOut()">Check-Out</button></div>
-<br> 
-<p> <b>คำแนะนำ</b> <br>
-      หากลา หรือไปราชการ อาทิ ประชุม อบรม สัมมนา ช่วยราชการ ให้เลือกรายการ (ลา หรือ ไปราชการ) และระบุหมายเหตุ แล้วกด Check In ด้วยนะครับ</p>
-      
+
 <p id="demo"></p>
 </center>
 
@@ -51,12 +34,12 @@ today.toLocaleString('th-TH', { timeZone: 'Asia/Bangkok' })
 var hh = today.getHours();
 var mm = today.getMinutes(); 
 
-        if(hh <= 15){
+        if(hh <= 13){
           document.getElementById("cin").classList.remove('invisible');
-        }else if(hh >= 16){
+        }else if(hh >= 16 && mm <= 30){
           document.getElementById("cout").classList.remove('invisible');
             }else{
-alert("ไม่สามารถเช็คอิน/เอาท์ได้ในช่วงเวลา 13.00-16.00 "+hh+":"+mm);
+alert("ไม่สามารถเช็คอิน/เอาท์ได้ในช่วงเวลา 13.00-16.30 "+hh+":"+mm);
 liff.closeWindow();  
             }
 }
@@ -75,7 +58,6 @@ function initializeLiff(myLiffId) {
 }
 
 var x = document.getElementById("demo");
-  
 
 function getLocation() {
   if (navigator.geolocation) {
@@ -86,20 +68,18 @@ function getLocation() {
 }
 
 function showPosition(position) {
-var selx = document.getElementById("typea").value;
-var untex = document.getElementById("nte").value;
+
      liff.getProfile().then(function(profile) {
             var uid = profile.userId;
             var uname = profile.displayName;
-        var xos = liff.getOS();       
+        var xos = liff.getOS();
   x.innerHTML = "Lat: " + position.coords.latitude + 
   "<br>Long: " + position.coords.longitude+ 
   "<br>userId: " + uid+ 
   "<br>displayName: " + uname+
   "<br>your OS: " + xos;
-
 var xmlhttp = new XMLHttpRequest();
-        var theUrl = xurl+"?ctype=In&xos="+xos+"&user="+uid+"&name="+uname+"&lat="+position.coords.latitude+"&long="+position.coords.longitude+"&sel="+selx+"&ntex="+untex;
+        var theUrl = xurl+"?ctype=In&xos="+xos+"&user="+uid+"&name="+uname+"&lat="+position.coords.latitude+"&long="+position.coords.longitude;
         xmlhttp.open('GET', theUrl);
         xmlhttp.send();
             xmlhttp.onreadystatechange = function() {
@@ -125,8 +105,7 @@ function getLocationOut() {
 }
 
 function showPositionOut(position) {
-var selx = document.getElementById("typea").value;
-var untex = document.getElementById("nte").value;
+
      liff.getProfile().then(function(profile) {
             var uid = profile.userId;
             var uname = profile.displayName;
@@ -136,9 +115,8 @@ var untex = document.getElementById("nte").value;
   "<br>userId: " + uid+ 
   "<br>displayName: " + uname+
   "<br>your OS: " + xos;
-
 var xmlhttp = new XMLHttpRequest();
-        var theUrl = xurl+"?ctype=Out&xos="+xos+"&user="+uid+"&name="+uname+"&lat="+position.coords.latitude+"&long="+position.coords.longitude+"&sel="+selx+"&ntex="+untex;
+        var theUrl = xurl+"?ctype=Out&xos="+xos+"&user="+uid+"&name="+uname+"&lat="+position.coords.latitude+"&long="+position.coords.longitude;
         xmlhttp.open('GET', theUrl);
         xmlhttp.send();
             xmlhttp.onreadystatechange = function() {
