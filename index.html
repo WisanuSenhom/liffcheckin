@@ -8,12 +8,12 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-    <title>ITDEV.win</title>
+    <title>รพ.สต.หนองทุ่ม</title>
   </head>
   <body>
     <center>
     <h1>Check-In/Out Log</h1>
-<p>Click the button to check-in or check-out with your coordinates.</p>
+<p>👉Click the button to check-in or check-out with your coordinates.</p>
 <label for="typea">เลือกประเภท:</label>
 <select id="typea">
   <option value="vip">ลา</option>
@@ -24,9 +24,11 @@
 <textarea id="nte" name="nte" rows="2" cols="35"
 placeholder="หมายเหตุ" required="" maxlength="255"  warp="soft">
 </textarea>
-<div id="cin" class="invisible"><button type="button" class="btn btn-success" onclick="getLocation()">Check-In</button></div>
-<div id="cout" class="invisible"><button id="cout" type="button" class="btn btn-danger" onclick="getLocationOut()">Check-Out</button></div>
-
+<div id="cin" class="invisible"><button type="button" class="btn btn-success" onclick="getLocation()">⏰Check-In</button></div>
+<div id="cout" class="invisible"><button id="cout" type="button" class="btn btn-danger" onclick="getLocationOut()">⏰Check-Out</button></div>
+<br> 
+<p> <b>📣คำแนะนำ</b> <br>
+      หากลา หรือไปราชการ อาทิ ประชุม อบรม สัมมนา ช่วยราชการ ให้เลือกรายการ (ลา หรือ ไปราชการ) และระบุหมายเหตุ แล้วกด Check In ด้วยนะครับ</p>
 <p id="demo"></p>
 </center>
 
@@ -44,12 +46,12 @@ today.toLocaleString('th-TH', { timeZone: 'Asia/Bangkok' })
 var hh = today.getHours();
 var mm = today.getMinutes(); 
 
-        if(hh <= 8){
+        if(hh <= 14){
           document.getElementById("cin").classList.remove('invisible');
-        }else if(hh >= 9){
+        }else if(hh >= 16 && mm >= 30){
           document.getElementById("cout").classList.remove('invisible');
             }else{
-alert("ไม่สามารถเช็คอิน/เอาท์ได้ในช่วงเวลา 13.00-16.30 "+hh+":"+mm);
+alert("ไม่สามารถเช็คอิน/เอาท์ได้ในช่วงเวลา 14.00-16.30 "+hh+":"+mm);
 liff.closeWindow();  
             }
 }
