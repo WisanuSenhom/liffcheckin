@@ -48,10 +48,10 @@ var mm = today.getMinutes();
 
         if(hh <= 14){
           document.getElementById("cin").classList.remove('invisible');
-        }else if(hh >= 16 && mm >= 30){
+        }else if(hh >= 16 && mm > 30){
           document.getElementById("cout").classList.remove('invisible');
             }else{
-alert("ไม่สามารถเช็คอิน/เอาท์ได้ในช่วงเวลา 14.00-16.30 "+hh+":"+mm);
+alert("ไม่สามารถเช็คอิน/เอาท์ได้ในช่วงเวลา 14.00-16.29 "+hh+":"+mm);
 liff.closeWindow();  
             }
 }
