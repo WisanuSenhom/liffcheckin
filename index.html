@@ -14,6 +14,13 @@
     <center>
     <h1>Check-In/Out Log</h1>
 <p>Click the button to check-in or check-out with your coordinates.</p>
+<label for="typea">เลือกประเภท:</label>
+<select id="typea">
+  <option value="vip">ลา</option>
+  <option value="outcome">ไปราชการ</option>
+  <option value="income">ยืมตัวมาช่วยราชการ</option>
+  <option value="normal" selected>ปกติ</option>
+</select>  
 <div id="cin" class="invisible"><button type="button" class="btn btn-success" onclick="getLocation()">Check-In</button></div>
 <div id="cout" class="invisible"><button id="cout" type="button" class="btn btn-danger" onclick="getLocationOut()">Check-Out</button></div>
 
@@ -68,7 +75,7 @@ function getLocation() {
 }
 
 function showPosition(position) {
-
+var sel = document.getElementById("typea").value;
      liff.getProfile().then(function(profile) {
             var uid = profile.userId;
             var uname = profile.displayName;
@@ -79,7 +86,7 @@ function showPosition(position) {
   "<br>displayName: " + uname+
   "<br>your OS: " + xos;
 var xmlhttp = new XMLHttpRequest();
-        var theUrl = xurl+"?ctype=In&xos="+xos+"&user="+uid+"&name="+uname+"&lat="+position.coords.latitude+"&long="+position.coords.longitude;
+        var theUrl = xurl+"?ctype=In&sel="+sel+"&xos="+xos+"&user="+uid+"&name="+uname+"&lat="+position.coords.latitude+"&long="+position.coords.longitude;
         xmlhttp.open('GET', theUrl);
         xmlhttp.send();
             xmlhttp.onreadystatechange = function() {
