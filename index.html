@@ -14,16 +14,36 @@
     <center>
     <h1>Check-In/Out Log</h1>
 <p>👉Click the button to check-in or check-out with your coordinates.</p>
+      
+<script>
+function ShowAndHide() {
+    var x = document.getElementById('SectionName');
+    if (x.style.display == 'none') {
+        x.style.display = 'block';
+    } else {
+        x.style.display = 'none';
+    }
+}
+</script>
+
+<button onclick="ShowAndHide()">บันทึกเพิ่มเติม</BUTTON>
+
+<div id="SectionName" style="display:none">
+
 <label for="typea">เลือก:</label>
 <select id="typea">
   <option value="vip">ลา</option>
   <option value="outcome">ไปราชการ</option>
   <option value="income">ยืมตัวมาช่วยราชการ</option>
   <option value="normal" selected>ปกติ</option>
-</select> 
+</select> <br>
 <textarea id="nte" name="nte" rows="2" cols="35"
 placeholder="หมายเหตุ" required="" maxlength="255"  warp="soft">
 </textarea>
+
+</div>
+      
+      
 <div id="cin" class="invisible"><button type="button" class="btn btn-success" onclick="getLocation()">Check-In</button></div>
 <div id="cout" class="invisible"><button id="cout" type="button" class="btn btn-danger" onclick="getLocationOut()">Check-Out</button></div>
 <br> 
