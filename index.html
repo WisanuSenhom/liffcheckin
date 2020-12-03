@@ -14,8 +14,7 @@
     <center>
     <h1>Check-In/Out Log</h1>
 <p>👉Click the button to check-in or check-out with your coordinates.</p>
-      
-<script>
+ <script>
 function ShowAndHide() {
     var x = document.getElementById('SectionName');
     if (x.style.display == 'none') {
@@ -26,22 +25,43 @@ function ShowAndHide() {
 }
 </script>
 
-<button type="button" class="btn btn-info" onclick="ShowAndHide()">บันทึกเพิ่มเติม</button>
+<button onclick="ShowAndHide()">เพิ่มเติม</BUTTON>
 
 <div id="SectionName" style="display:none">
 
-<label for="typea">เลือก:</label>
+
 <select id="typea">
-  <option value="vip">ลา</option>
-  <option value="outcome">ไปราชการ</option>
-  <option value="income">ยืมตัวมาช่วยราชการ</option>
-  <option value="normal" selected>ปกติ</option>
+  <option value="">--ลา/ไปราชการ--</option>
+  <option value="ลากิจ">ลากิจ</option>
+  <option value="ลาป่วย">ลาป่วย</option>
+  <option value="ลาพักผ่อน">ลาพักผ่อน</option>
+  <option value="ลาอื่นๆ">ลาอื่นๆ</option>
+  <option value="ไปราชการ">ไปราชการ</option>
+  <option value="มาช่วยราชการ">มาช่วยราชการ</option>
+</select> <br>
+  <label for="vipday">วันนี้ - วันที่:</label>
+  <input type="date" id="vipday" name="vipday">
+  <br>
+<select id="typeb">
+  <option value="">--มอบ--</option>
+  <option value="เทพคนอง">เทพคนอง</option>
+  <option value="ธีระพงษ์">ธีระพงษ์</option>
+  <option value="กรณ์วสุตว์">กรณ์วสุตว์</option>
+  <option value="จักราวุธ">จักราวุธ</option>
+  <option value="วิษณุ">วิษณุ</option>
+  <option value="ธันยกานต์">ธันยกานต์</option>
+  <option value="เบญจมาศ">เบญจมาศ</option>
+  <option value="วิไลลักษณ์">วิไลลักษณ์</option>
+  <option value="จันจิรา">จันจิรา</option>
+  <option value="นภาภรณ์">นภาภรณ์</option>
+  <option value="มณีรัตน์">มณีรัตน์</option>
 </select> <br>
 <textarea id="nte" name="nte" rows="2" cols="35"
 placeholder="หมายเหตุ" required="" maxlength="255"  warp="soft">
 </textarea>
 
-</div>
+</div>     
+
       
       
 <div id="cin" class="invisible"><button type="button" class="btn btn-success" onclick="getLocation()">Check-In</button></div>
@@ -101,6 +121,8 @@ function getLocation() {
 
 function showPosition(position) {
 var sel = document.getElementById("typea").value;
+var vday = document.getElementById("vipday").value;
+var sels = document.getElementById("typeb").value;
 var ntex = document.getElementById("nte").value;
      liff.getProfile().then(function(profile) {
             var uid = profile.userId;
@@ -112,7 +134,7 @@ var ntex = document.getElementById("nte").value;
   "<br>displayName: " + uname+
   "<br>your OS: " + xos;
 var xmlhttp = new XMLHttpRequest();
-        var theUrl = xurl+"?ctype=In&sel="+sel+"&ntex="+ntex+"&xos="+xos+"&user="+uid+"&name="+uname+"&lat="+position.coords.latitude+"&long="+position.coords.longitude;
+        var theUrl = xurl+"?ctype=In&sel="+sel+"&vday="+vday+"&sels="+sels+"&ntex="+ntex+"&xos="+xos+"&user="+uid+"&name="+uname+"&lat="+position.coords.latitude+"&long="+position.coords.longitude;
         xmlhttp.open('GET', theUrl);
         xmlhttp.send();
             xmlhttp.onreadystatechange = function() {
@@ -139,6 +161,8 @@ function getLocationOut() {
 
 function showPositionOut(position) {
 var sel = document.getElementById("typea").value;
+var vday = document.getElementById("vipday").value;
+var sels = document.getElementById("typeb").value;
 var ntex = document.getElementById("nte").value;
      liff.getProfile().then(function(profile) {
             var uid = profile.userId;
@@ -150,7 +174,7 @@ var ntex = document.getElementById("nte").value;
   "<br>displayName: " + uname+
   "<br>your OS: " + xos;
 var xmlhttp = new XMLHttpRequest();
-        var theUrl = xurl+"?ctype=Out&sel="+sel+"&ntex="+ntex+"&xos="+xos+"&user="+uid+"&name="+uname+"&lat="+position.coords.latitude+"&long="+position.coords.longitude;
+        var theUrl = xurl+"?ctype=Out&sel="+sel+"&vday="+vday+"&sels="+sels+"&ntex="+ntex+"&xos="+xos+"&user="+uid+"&name="+uname+"&lat="+position.coords.latitude+"&long="+position.coords.longitude;
         xmlhttp.open('GET', theUrl);
         xmlhttp.send();
             xmlhttp.onreadystatechange = function() {
