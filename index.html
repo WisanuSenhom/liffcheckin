@@ -25,7 +25,7 @@ function ShowAndHide() {
 }
 </script>
 
-<button onclick="ShowAndHide()">เพิ่มเติม</BUTTON>
+<button type="button" class="btn btn-info"  onclick="ShowAndHide()">เพิ่มเติม</button>
 
 <div id="SectionName" style="display:none">
 
@@ -38,9 +38,11 @@ function ShowAndHide() {
   <option value="ลาอื่นๆ">ลาอื่นๆ</option>
   <option value="ไปราชการ">ไปราชการ</option>
   <option value="มาช่วยราชการ">มาช่วยราชการ</option>
-</select> <br>
-  <label for="vipday">วันนี้ - วันที่:</label>
-  <input type="date" id="vipday" name="vipday">
+</select>
+  <br>
+  <label for="vipday">ระหว่าง:</label>
+  <input type="date" id="vipday1" name="vipday1">
+  <input type="date" id="vipday2" name="vipday2">
   <br>
 <select id="typeb">
   <option value="">--มอบ--</option>
@@ -121,7 +123,8 @@ function getLocation() {
 
 function showPosition(position) {
 var sel = document.getElementById("typea").value;
-var vday = document.getElementById("vipday").value;
+var vday = document.getElementById("vipday1").value;
+var vday2 = document.getElementById("vipday2").value;
 var sels = document.getElementById("typeb").value;
 var ntex = document.getElementById("nte").value;
      liff.getProfile().then(function(profile) {
@@ -134,7 +137,7 @@ var ntex = document.getElementById("nte").value;
   "<br>displayName: " + uname+
   "<br>your OS: " + xos;
 var xmlhttp = new XMLHttpRequest();
-        var theUrl = xurl+"?ctype=In&sel="+sel+"&vday="+vday+"&sels="+sels+"&ntex="+ntex+"&xos="+xos+"&user="+uid+"&name="+uname+"&lat="+position.coords.latitude+"&long="+position.coords.longitude;
+        var theUrl = xurl+"?ctype=In&sel="+sel+"&vday="+vday+"&vday2="+vday2+"&sels="+sels+"&ntex="+ntex+"&xos="+xos+"&user="+uid+"&name="+uname+"&lat="+position.coords.latitude+"&long="+position.coords.longitude;
         xmlhttp.open('GET', theUrl);
         xmlhttp.send();
             xmlhttp.onreadystatechange = function() {
@@ -161,7 +164,8 @@ function getLocationOut() {
 
 function showPositionOut(position) {
 var sel = document.getElementById("typea").value;
-var vday = document.getElementById("vipday").value;
+var vday = document.getElementById("vipday1").value;
+var vday2 = document.getElementById("vipday2").value;
 var sels = document.getElementById("typeb").value;
 var ntex = document.getElementById("nte").value;
      liff.getProfile().then(function(profile) {
@@ -174,7 +178,7 @@ var ntex = document.getElementById("nte").value;
   "<br>displayName: " + uname+
   "<br>your OS: " + xos;
 var xmlhttp = new XMLHttpRequest();
-        var theUrl = xurl+"?ctype=Out&sel="+sel+"&vday="+vday+"&sels="+sels+"&ntex="+ntex+"&xos="+xos+"&user="+uid+"&name="+uname+"&lat="+position.coords.latitude+"&long="+position.coords.longitude;
+        var theUrl = xurl+"?ctype=Out&sel="+sel+"&vday="+vday+"&vday2="+vday2+"&sels="+sels+"&ntex="+ntex+"&xos="+xos+"&user="+uid+"&name="+uname+"&lat="+position.coords.latitude+"&long="+position.coords.longitude;
         xmlhttp.open('GET', theUrl);
         xmlhttp.send();
             xmlhttp.onreadystatechange = function() {
