@@ -14,7 +14,7 @@
     <center>
     <h1>Check-In/Out Log</h1>
 <p>👉Click the button to check-in or check-out with your coordinates.</p>
- <script>
+  <script>
 function ShowAndHide() {
     var x = document.getElementById('SectionName');
     if (x.style.display == 'none') {
@@ -63,14 +63,14 @@ function ShowAndHide() {
 placeholder="หมายเหตุ" required="" maxlength="255"  warp="soft">
 </textarea>
 
-</div>     
+</div> 
 
-      <br><br>
+      
       
 <div id="cin" class="invisible"><button type="button" class="btn btn-success" onclick="getLocation()">Check-In</button></div>
 <div id="cout" class="invisible"><button id="cout" type="button" class="btn btn-danger" onclick="getLocationOut()">Check-Out</button></div>
 <br> 
-<p> <b>📢คำแนะนำ</b> <br>  ปรับครั้งที่ 1
+<p> <b>📢คำแนะนำ</b> <br>
       หากลา หรือไปราชการ อาทิ ประชุม อบรม สัมมนา ช่วยราชการ ให้เลือกรายการ (ลา หรือ ไปราชการ) และระบุหมายเหตุ แล้วกด Check In ด้วยนะครับ เพื่อเป็นการเก็บข้อมูลสำหรับจัดทำรายงาน👌</p>
 <p id="demo"></p>
 </center>
@@ -113,8 +113,6 @@ function initializeLiff(myLiffId) {
 }
 
 var x = document.getElementById("demo");
-  
-  ////////////////////////
 
 function getLocation() {
   if (navigator.geolocation) {
@@ -149,9 +147,8 @@ var xmlhttp = new XMLHttpRequest();
         }
         alert(jsonResponse.desc);
         liff.closeWindow();
-      }}); 
+      }});  
 }
-
 
 
 
@@ -169,7 +166,7 @@ function getLocationOut() {
 function showPositionOut(position) {
 var sel = document.getElementById("typea").value;
 var vday = document.getElementById("vipday1").value;
-var vday2 = document.getElementById("vipday2").value;
+var vday2 = document.getElementById("vipday2").value;  
 var sels = document.getElementById("typeb").value;
 var ntex = document.getElementById("nte").value;
      liff.getProfile().then(function(profile) {
@@ -191,9 +188,10 @@ var xmlhttp = new XMLHttpRequest();
         }
         alert(jsonResponse.desc);
         liff.closeWindow();
-      }}); 
- 
+      }});  
 }
+
+
 
 </script>
 
