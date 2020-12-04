@@ -14,7 +14,7 @@
     <center>
     <h1>Check-In/Out Log</h1>
 <p>👉Click the button to check-in or check-out with your coordinates.</p>
-  <script>
+ <script>
 function ShowAndHide() {
     var x = document.getElementById('SectionName');
     if (x.style.display == 'none') {
@@ -25,9 +25,10 @@ function ShowAndHide() {
 }
 </script>
 
-<button type="button" class="btn btn-info" onclick="ShowAndHide()">เพิ่มเติม</BUTTON>
+<button onclick="ShowAndHide()">เพิ่มเติม</BUTTON>
 
 <div id="SectionName" style="display:none">
+
 
 <select id="typea">
   <option value="">--ลา/ไปราชการ--</option>
@@ -37,12 +38,9 @@ function ShowAndHide() {
   <option value="ลาอื่นๆ">ลาอื่นๆ</option>
   <option value="ไปราชการ">ไปราชการ</option>
   <option value="มาช่วยราชการ">มาช่วยราชการ</option>
-</select> 
- <br>
-<label for="vipday1">ตั้งแต่:</label>
-  <input type="date" id="vipday" name="vipday1">
-  <label for="vipday2">ถึง:</label>
-  <input type="date" id="vipday" name="vipday2">
+</select> <br>
+  <label for="vipday">วันนี้ - วันที่:</label>
+  <input type="date" id="vipday" name="vipday">
   <br>
 <select id="typeb">
   <option value="">--มอบ--</option>
@@ -62,9 +60,9 @@ function ShowAndHide() {
 placeholder="หมายเหตุ" required="" maxlength="255"  warp="soft">
 </textarea>
 
-</div> 
+</div>     
 
-  <br><br>    
+      
       
 <div id="cin" class="invisible"><button type="button" class="btn btn-success" onclick="getLocation()">Check-In</button></div>
 <div id="cout" class="invisible"><button id="cout" type="button" class="btn btn-danger" onclick="getLocationOut()">Check-Out</button></div>
@@ -123,8 +121,7 @@ function getLocation() {
 
 function showPosition(position) {
 var sel = document.getElementById("typea").value;
-var vday = document.getElementById("vipday1").value;
-var vday2 = document.getElementById("vipday2").value;
+var vday = document.getElementById("vipday").value;
 var sels = document.getElementById("typeb").value;
 var ntex = document.getElementById("nte").value;
      liff.getProfile().then(function(profile) {
@@ -137,7 +134,7 @@ var ntex = document.getElementById("nte").value;
   "<br>displayName: " + uname+
   "<br>your OS: " + xos;
 var xmlhttp = new XMLHttpRequest();
-        var theUrl = xurl+"?ctype=In&sel="+sel+"&vday="+vday+"&vday2="+vday2+"&sels="+sels+"&ntex="+ntex+"&xos="+xos+"&user="+uid+"&name="+uname+"&lat="+position.coords.latitude+"&long="+position.coords.longitude;
+        var theUrl = xurl+"?ctype=In&sel="+sel+"&vday="+vday+"&sels="+sels+"&ntex="+ntex+"&xos="+xos+"&user="+uid+"&name="+uname+"&lat="+position.coords.latitude+"&long="+position.coords.longitude;
         xmlhttp.open('GET', theUrl);
         xmlhttp.send();
             xmlhttp.onreadystatechange = function() {
@@ -164,8 +161,7 @@ function getLocationOut() {
 
 function showPositionOut(position) {
 var sel = document.getElementById("typea").value;
-var vday = document.getElementById("vipday1").value;
-var vday2 = document.getElementById("vipday2").value;  
+var vday = document.getElementById("vipday").value;
 var sels = document.getElementById("typeb").value;
 var ntex = document.getElementById("nte").value;
      liff.getProfile().then(function(profile) {
@@ -178,7 +174,7 @@ var ntex = document.getElementById("nte").value;
   "<br>displayName: " + uname+
   "<br>your OS: " + xos;
 var xmlhttp = new XMLHttpRequest();
-        var theUrl = xurl+"?ctype=Out&sel="+sel+"&vday="+vday+"&vday2="+vday2+"&sels="+sels+"&ntex="+ntex+"&xos="+xos+"&user="+uid+"&name="+uname+"&lat="+position.coords.latitude+"&long="+position.coords.longitude;
+        var theUrl = xurl+"?ctype=Out&sel="+sel+"&vday="+vday+"&sels="+sels+"&ntex="+ntex+"&xos="+xos+"&user="+uid+"&name="+uname+"&lat="+position.coords.latitude+"&long="+position.coords.longitude;
         xmlhttp.open('GET', theUrl);
         xmlhttp.send();
             xmlhttp.onreadystatechange = function() {
