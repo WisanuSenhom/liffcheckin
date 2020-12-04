@@ -67,8 +67,8 @@ placeholder="หมายเหตุ" required="" maxlength="255"  warp="soft">
 
       <br><br>
       
-<div id="cin" class="invisible"><button type="button" class="btn btn-success" onclick="getLocation(),disableButton()">Check-In</button></div>
-<div id="cout" class="invisible"><button id="cout" type="button" class="btn btn-danger" onclick="getLocationOut(),disableButton()">Check-Out</button></div>
+<div id="cin" class="invisible"><button type="button" class="btn btn-success" onclick="disableButton(),getLocation()">Check-In</button></div>
+<div id="cout" class="invisible"><button id="cout" type="button" class="btn btn-danger" onclick="disableButtonout(),getLocationOut()">Check-Out</button></div>
 <br> 
 <p> <b>📢คำแนะนำ</b> <br>
       หากลา หรือไปราชการ อาทิ ประชุม อบรม สัมมนา ช่วยราชการ ให้เลือกรายการ (ลา หรือ ไปราชการ) และระบุหมายเหตุ แล้วกด Check In ด้วยนะครับ เพื่อเป็นการเก็บข้อมูลสำหรับจัดทำรายงาน👌</p>
@@ -150,18 +150,7 @@ var xmlhttp = new XMLHttpRequest();
       }});  
 }
 
-////////////////////////////////
-    function disableButton() {
-        var btn = document.getElementById('cin');
-        btn.disabled = true;
-        btn.innerText = 'Sending...'
-    }
-  
-      function disableButtonout() {
-        var btn = document.getElementById('cout');
-        btn.disabled = true;
-        btn.innerText = 'Sending...'
-    }
+
 
 
 ///////////////////////////////
@@ -202,6 +191,19 @@ var xmlhttp = new XMLHttpRequest();
         liff.closeWindow();
       }});  
 }
+  
+  ////////////////////////////////
+    function disableButton() {
+        var btn = document.getElementById('cin');
+        btn.disabled = true;
+        btn.innerText = 'Sending...'
+    }
+  
+      function disableButtonout() {
+        var btn = document.getElementById('cout');
+        btn.disabled = true;
+        btn.innerText = 'Sending...'
+    }
 
 
 
