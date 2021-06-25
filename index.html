@@ -38,7 +38,8 @@
 <div id="cin" class="invisible"><button id="cin" type="button" class="btn btn-success btn-lg" onclick="getLocation()">Check-In</button></div>
 <div id="cout" class="invisible"><button id="cout" type="button" class="btn btn-danger btn-lg" onclick="getLocationOut()">Check-Out</button></div>
                 </form>
-				  <p id="demo"></p>
+		      <p id="timer"></p>
+			<p id="demo"></p>
               </div>
             </div>
           </div>
@@ -66,6 +67,7 @@ function checks(){
 
 var today = new Date();
 today.toLocaleString('th-TH', { timeZone: 'Asia/Bangkok' })
+document.getElementById("timer").innerHTML = today;
 var hh = today.getHours();
 var mm = today.getMinutes(); 
 
