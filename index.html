@@ -10,50 +10,63 @@
 
     <title>รพ.สต.หนองทุ่ม</title>
   </head>
- <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-12 col-md-8 mx-auto">
-          <div class="jumbotron">
-            <div class="row text-center">
-              <div class="text-center col-12">
-                <h2>ระบบลงเวลาการปฏิบัติงาน</h2>
-              </div>
-              <div class="text-center col-12">
-                <!-- CONTACT FORM https://github.com/jonmbake/bootstrap3-contact-form -->
-                <form id="feedbackForm" class="text-center">
-                  <div class="form-group">
-                    <label for="name">..:: ประเภทการลงเวลาปฏิบัติราชการ ::</label>..
-                    <select class="form-control" id="typea">
-  <option value="ปกติ">ปกติ</option>
+  <body>
+    <center>
+    <h1>Check-In/Out Log</h1>
+<p>👉Click the button to check-in or check-out with your coordinates.</p>
+ <script>
+function ShowAndHide() {
+    var x = document.getElementById('SectionName');
+    if (x.style.display == 'none') {
+        x.style.display = 'block';
+    } else {
+        x.style.display = 'none';
+    }
+}
+</script>
+
+<button type="button" class="btn btn-info"  onclick="ShowAndHide()">เพิ่มเติม</button>
+
+<div id="SectionName" style="display:none">
+
+
+<select id="typea">
+  <option value="">--เลือกประเภท--</option>
   <option value="ไปราชการ">ไปราชการ</option>
+  <option value="ไปราชการ">ไปราชการ(ประชุม/อบรม)</option>
+  <option value="ลา">ลา</option>
+  <option value="ราชการ">อยู่เวร(ด่านโควิด-19)</option>
   <option value="ราชการ">ไปช่วยราชการ</option>
   <option value="มาช่วยราชการ">มาช่วยราชการ</option>
-  <option value="อื่นๆ">อื่นๆ โปรดระบุ</option>
 </select>
-                  </div>
-                  <div class="form-group">
-                    <textarea rows="3" cols="100" class="form-control" id="nte" name="nte" placeholder="รายละเอียดเพิ่มเติม" ></textarea>
-                  </div>
-					<div id="cin" class="invisible"><button type="button" class="btn btn-success btn-lg" onclick="getLocation()">Check-In</button></div>
-<div id="cout" class="invisible"><button id="cout" type="button" class="btn btn-danger btn-lg" onclick="getLocationOut()">Check-Out</button></div>
-                </form>
-              </div>
-				<p id="demo"></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <footer class="text-center">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <p>Powered By Nongthum Healthy Hospital 2021</p>
-          </div>
-        </div>
-      </div>
-    </footer>
+  <br>
+  <select id="typeb">
+  <option value="">--เลือกประเภทเพิ่มเติม--</option>
+  <option value="ประชุม">ประชุม</option>
+  <option value="อบรม">อบรม</option>
+  <option value="ช่วยราชการ">ช่วยราชการ</option>
+    <option value="ช่วยราชการ">ช่วยราชการหน่วยงานในสังกัด</option>
+    <option value="ช่วยราชการ">ช่วยราชการหน่วยงานนอกสังกัด</option>
+  <option value="ลาป่วย">ลาป่วย</option>
+  <option value="ลากิจ">ลากิจ</option>
+  <option value="ลาพักผ่อน">ลาพักผ่อน</option>
+  <option value="อื่นๆ">อื่นๆ</option>
+</select> <br>
+<textarea id="nte" name="nte" rows="2" cols="35"
+placeholder="รายละเอียดพิ่มเติม/อื่นๆระบุ" required="" maxlength="255"  warp="soft">
+</textarea><br>
+<a href="https://datastudio.google.com/s/ssLcEldSQhc" target="_blank">หากจะลากรุณากดที่นี้เพื่อบันทึกคำขอ</a>
+</div>     
+
+ <br><br>     
+      
+<div id="cin" class="invisible"><button type="button" class="btn btn-success" onclick="getLocation()">Check-In</button></div>
+<div id="cout" class="invisible"><button id="cout" type="button" class="btn btn-danger" onclick="getLocationOut()">Check-Out</button></div>
+<br> 
+<p> <b>📢คำแนะนำ</b> <br>
+      หากไปราชการ อาทิ ประชุม อบรม สัมมนา ช่วยราชการ อื่นๆ ให้กดปุ่มเพิ่มเติมแล้วเลือกรายการ แล้วกด Check In ด้วยนะครับ เพื่อเป็นการเก็บข้อมูลสำหรับจัดทำรายงาน👌</p>
+<p id="demo"></p>
+</center>
 
 <script>
 window.onload = function() {
