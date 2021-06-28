@@ -27,7 +27,7 @@
 				  <select class="form-control" id="typea">
   					<option value="ปกติ" selected>ปกติ</option>
   					<option value="ไปราชการ">ไปราชการ</option>
-  					<option value="ไปราชการ">ไปช่วยราชการ</option>
+  					<option value="ไปช่วยราชการ">ไปช่วยราชการ</option>
   					<option value="มาช่วยราชการ">มาช่วยราชการ</option>
     				<option value="อื่นๆ">อื่นๆ โปรดระบุเพิ่มเติม</option>
 				</select>
@@ -72,12 +72,12 @@ document.getElementById("timer").innerHTML = today;
 var hh = today.getHours();
 var mm = today.getMinutes(); 
 
-        if(hh <= 14){
+        if(hh <= 10){
           document.getElementById("cin").classList.remove('invisible');
         }else if(hh >= 16){
           document.getElementById("cout").classList.remove('invisible');
             }else{
-alert("ไม่สามารถเช็คอิน/เอาท์ได้ในช่วงเวลา 14.00-16.00 "+hh+":"+mm);
+alert("ไม่สามารถเช็คอิน/เอาท์ได้ในช่วงเวลา 10.00-16.00 "+hh+":"+mm);
 liff.closeWindow();  
             }
 }
